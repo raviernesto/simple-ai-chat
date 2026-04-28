@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Groq } from "groq-sdk";
-import { env } from "~/env";
 
-const groq = new Groq({ apiKey: env.GROQ_API_KEY });
+const apiKey = process.env.GROQ_API_KEY;
+
+const groq = new Groq({ apiKey: apiKey });
 
 type ChatMessage = {
   role: "user" | "assistant";
